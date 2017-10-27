@@ -9,12 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var history:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! HistoryViewController
+        destination.history = self.history
+    }
+    
     @IBOutlet weak var display: UILabel!
     
     override func didReceiveMemoryWarning() {
@@ -66,9 +72,16 @@ class ViewController: UIViewController {
     @IBAction func equalsPressed(_ sender: UIButton) {
         numbers.append(Double(display.text!)!)
         display.text = performOperation(numbers: numbers, operation: operation)
-        numbers = []
-        operation = ""
-        userIsInTheMiddleOfTyping = false
+        //add history
+        if numbers.count > 0{
+            var historyResult = ""
+            for n in numbers{
+                historyResult += String(n) + " " + operation
+            }
+            historyResult += " = " + display.text!
+            history.append(historyResult)
+        }
+        reset()
     }
     @IBAction func factButton(_ sender: UIButton) {
         if numbers.count == 0{
@@ -82,7 +95,17 @@ class ViewController: UIViewController {
                 n = n-1
             }
             display.text = String(i)
+            
+            history.append("\(numbers[0])! = \(display.text!)")
+            reset()
+            
         }
+    }
+    
+    func reset() {
+        numbers = []
+        operation = ""
+        userIsInTheMiddleOfTyping = false
     }
     func performOperation(numbers:[Double],operation:String) -> String {
         
@@ -109,6 +132,7 @@ class ViewController: UIViewController {
             result = String(Int(numbers[0]) % Int(numbers[1]))
         default:
             result = "0"
+            reset()
         }
         var split = result.split(separator: ".")
         if split.count > 1 {
