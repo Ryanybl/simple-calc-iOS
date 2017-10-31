@@ -327,47 +327,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xLq-aA-c5q">
-                                <rect key="frame" x="16" y="40" width="75" height="54"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-eq-T5f">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="ZVM-Bh-M1q"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="dpJ-eq-T5f" firstAttribute="top" secondItem="xLq-aA-c5q" secondAttribute="top" constant="20" id="dlS-au-a7X"/>
-                                    <constraint firstItem="dpJ-eq-T5f" firstAttribute="leading" secondItem="xLq-aA-c5q" secondAttribute="leading" constant="20" id="yCe-vm-DCU"/>
-                                </constraints>
-                            </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWO-2W-x0F">
-                                <rect key="frame" x="16" y="102" width="343" height="545"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-eq-T5f">
+                                <rect key="frame" x="16" y="20" width="50" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="ZVM-Bh-M1q"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0IQ-Ic-1ZD">
+                                <rect key="frame" x="16" y="68" width="343" height="579"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xLq-aA-c5q" firstAttribute="top" secondItem="wbD-zO-VoY" secondAttribute="top" constant="20" id="5fw-q2-7I3"/>
-                            <constraint firstItem="wbD-zO-VoY" firstAttribute="bottom" secondItem="xLq-aA-c5q" secondAttribute="bottom" constant="50" id="9Bu-cR-9UD"/>
-                            <constraint firstItem="wbD-zO-VoY" firstAttribute="trailing" secondItem="xLq-aA-c5q" secondAttribute="trailing" constant="16" id="ihD-Sw-OiR"/>
-                            <constraint firstItem="xLq-aA-c5q" firstAttribute="leading" secondItem="wbD-zO-VoY" secondAttribute="leading" constant="16" id="nTi-RJ-lCa"/>
+                            <constraint firstItem="0IQ-Ic-1ZD" firstAttribute="top" secondItem="dpJ-eq-T5f" secondAttribute="bottom" constant="8" id="GQ3-lb-hFw"/>
+                            <constraint firstItem="dpJ-eq-T5f" firstAttribute="top" secondItem="wbD-zO-VoY" secondAttribute="top" id="HK9-5E-wFQ"/>
+                            <constraint firstItem="wbD-zO-VoY" firstAttribute="bottom" secondItem="0IQ-Ic-1ZD" secondAttribute="bottom" constant="20" id="Rb4-Cv-aoN"/>
+                            <constraint firstItem="dpJ-eq-T5f" firstAttribute="leading" secondItem="wbD-zO-VoY" secondAttribute="leading" constant="16" id="VO5-Eb-3R2"/>
+                            <constraint firstItem="wbD-zO-VoY" firstAttribute="trailing" secondItem="0IQ-Ic-1ZD" secondAttribute="trailing" constant="16" id="Zqg-25-Cuh"/>
+                            <constraint firstItem="0IQ-Ic-1ZD" firstAttribute="leading" secondItem="wbD-zO-VoY" secondAttribute="leading" constant="16" id="lJP-J1-04B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wbD-zO-VoY"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9Bu-cR-9UD"/>
-                                <exclude reference="ihD-Sw-OiR"/>
-                                <exclude reference="5fw-q2-7I3"/>
-                                <exclude reference="nTi-RJ-lCa"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="scrollView" destination="WWO-2W-x0F" id="S5n-uF-wGd"/>
+                        <outlet property="textView" destination="0IQ-Ic-1ZD" id="33z-HK-v0G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXg-0A-a3o" userLabel="First Responder" sceneMemberID="firstResponder"/>
