@@ -327,22 +327,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xLq-aA-c5q">
-                                <rect key="frame" x="16" y="40" width="343" height="577"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xLq-aA-c5q">
+                                <rect key="frame" x="16" y="40" width="75" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-eq-T5f">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="19"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-eq-T5f">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="ZVM-Bh-M1q"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bls-JR-dqm">
-                                        <rect key="frame" x="0.0" y="39" width="343" height="538"/>
-                                    </scrollView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="dpJ-eq-T5f" firstAttribute="top" secondItem="xLq-aA-c5q" secondAttribute="top" constant="20" id="dlS-au-a7X"/>
+                                    <constraint firstItem="dpJ-eq-T5f" firstAttribute="leading" secondItem="xLq-aA-c5q" secondAttribute="leading" constant="20" id="yCe-vm-DCU"/>
+                                </constraints>
                             </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWO-2W-x0F">
+                                <rect key="frame" x="16" y="102" width="343" height="545"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -352,9 +357,17 @@
                             <constraint firstItem="xLq-aA-c5q" firstAttribute="leading" secondItem="wbD-zO-VoY" secondAttribute="leading" constant="16" id="nTi-RJ-lCa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wbD-zO-VoY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Bu-cR-9UD"/>
+                                <exclude reference="ihD-Sw-OiR"/>
+                                <exclude reference="5fw-q2-7I3"/>
+                                <exclude reference="nTi-RJ-lCa"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="scroll" destination="Bls-JR-dqm" id="h6y-vy-l8z"/>
+                        <outlet property="scrollView" destination="WWO-2W-x0F" id="S5n-uF-wGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXg-0A-a3o" userLabel="First Responder" sceneMemberID="firstResponder"/>

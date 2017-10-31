@@ -75,9 +75,10 @@ class ViewController: UIViewController {
         //add history
         if numbers.count > 0{
             var historyResult = ""
-            for n in numbers{
-                historyResult += String(n) + " " + operation
+            for n in 0...numbers.count-2{
+                historyResult += String(numbers[n]) + " " + operation + " "
             }
+            historyResult += String(numbers[numbers.count - 1])
             historyResult += " = " + display.text!
             history.append(historyResult)
         }
